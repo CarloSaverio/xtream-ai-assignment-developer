@@ -68,4 +68,28 @@ Observability is key. Save every request and response made to the APIs to a **pr
 ---
 
 ## How to run
-![Beaver photo](https://en.wikipedia.org/wiki/Beaver#/media/File:American_Beaver.jpg)
+![Beaver photo](images/American_Beaver.jpg)
+
+### Dataset
+The dataset is provided in csv format and can be found in the `data` directory.
+
+### Installation
+The the project locally, esnure that the following dependencies are installed:
+* Python 3.9 or higher
+* NumPy
+* Pandas
+* Scikit-learn
+* Jupyter Notebook
+
+### Usage
+1. Launch Jupyter Notebook `jupyter lab`
+2. Open the `Diamonds.ipynb` notebook
+3. Run the cells in the notebook. Execute the code and see the results.
+4. To test the API, launch the `API_code.py` in the src directory.
+5. You can test the two functionalities with
+   * `curl -X POST -H "Content-Type: application/json" -d  @your_file_name.json http://your.api.url:port/predict` for testing the diamond price prediction method.
+     Replace in the command both URL and the file name with the appropriate values.
+   * `curl -X GET "http://your.api.url:port/get_similar_diamonds?cut=Ideal&color=H&clarity=SI2&carat=1.10"` for the get similar diamonds methods
+
+### Results
+Models have been evaluated based on the mean absolute error (MAE). It is possible to change metrics and selection method (see the notes in the notebook).
