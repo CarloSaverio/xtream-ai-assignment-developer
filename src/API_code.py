@@ -51,12 +51,17 @@ def get_similar_diamonds():
 
         n = 5   # if it should vary the user must provide it in the future
 
+        
+
         # Filter Dataset based on cut, color, and clarity
         similar_diamonds = training_data[
             (training_data['cut'] == cut) &
             (training_data['color'] == color) &
             (training_data['clarity'] == clarity)
         ]
+        
+        if similar_diamonds.empty:
+            return 'No similar diamonds have been found'
 
         # Calculate error w.r.t carat setpoint and sort it
         similar_diamonds['diff'] = (similar_diamonds['carat'] - float(carat)).abs()
